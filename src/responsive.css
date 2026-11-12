@@ -1,0 +1,397 @@
+@supports (overflow: clip) {
+  .app {
+    overflow: clip;
+  }
+}
+
+@media (min-width: 1201px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 68px;
+    gap: clamp(16px, 2vw, 30px);
+    padding: 4px clamp(20px, 4vw, 56px);
+    border-bottom-color: rgba(217, 188, 138, 0.28);
+    background: rgba(20, 20, 20, 0.94);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
+  }
+
+  .header .brand .navbar-emblem {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 3px 12px rgba(217, 188, 138, 0.2));
+  }
+
+  .header .nav {
+    flex: 1 1 auto;
+    justify-content: center;
+    gap: 3px;
+    padding: 5px;
+    border: 1px solid rgba(217, 188, 138, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .header .nav>button {
+    padding: 11px clamp(8px, 0.85vw, 13px);
+    border: 0;
+    border-radius: 999px;
+    font-size: clamp(10px, 0.82vw, 12px);
+    font-weight: 600;
+    transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  }
+
+  .header .nav>button:hover:not(.selected) {
+    background: rgba(217, 188, 138, 0.1);
+    text-shadow: none;
+  }
+
+  .header .nav>button.selected {
+    border: 0;
+    background: linear-gradient(135deg, #F5F1EA, #D9BC8A 58%, #C5A46D);
+    color: #1C1C1C;
+    text-shadow: none;
+    box-shadow: 0 3px 12px rgba(217, 188, 138, 0.2);
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .header-actions .header-btn {
+    min-height: 42px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    box-shadow: 0 4px 14px rgba(217, 188, 138, 0.16);
+  }
+
+  .header-actions .header-btn:last-child {
+    border-color: rgba(217, 188, 138, 0.5);
+    background: rgba(217, 188, 138, 0.07);
+    color: #E8D7B8;
+    box-shadow: none;
+  }
+
+  .header-actions .header-btn:last-child:hover {
+    background: rgba(217, 188, 138, 0.15);
+    box-shadow: 0 5px 16px rgba(217, 188, 138, 0.13);
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom-color: rgba(217, 188, 138, 0.28);
+    background: rgba(20, 20, 20, 0.96);
+    backdrop-filter: blur(16px);
+  }
+
+  .mobile-menu {
+    border: 1px solid rgba(217, 188, 138, 0.32);
+    border-radius: 50%;
+    background: rgba(217, 188, 138, 0.06);
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+  }
+
+  .mobile-menu:hover,
+  .mobile-menu[aria-expanded="true"] {
+    border-color: rgba(217, 188, 138, 0.75);
+    background: rgba(217, 188, 138, 0.14);
+  }
+
+  .header .nav {
+    padding: 14px clamp(18px, 5vw, 36px) 20px;
+    border: 1px solid rgba(217, 188, 138, 0.2);
+    border-top: 0;
+    border-radius: 0 0 20px 20px;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(18px);
+  }
+
+  .header .nav>button {
+    padding: 12px;
+    border: 0;
+    border-radius: 12px;
+    transition: color 180ms ease, background 180ms ease;
+  }
+
+  .header .nav>button:hover:not(.selected) {
+    background: rgba(217, 188, 138, 0.08);
+  }
+
+  .header .nav>button.selected {
+    border: 0;
+    border-radius: 12px;
+    background: rgba(217, 188, 138, 0.13);
+    color: #F5DFAF;
+    text-shadow: none;
+  }
+
+  .nav-mobile-actions {
+    border-top-color: rgba(217, 188, 138, 0.2);
+  }
+
+  .nav-mobile-actions .header-btn {
+    min-height: 46px;
+    border-radius: 999px;
+  }
+
+  .nav-mobile-actions .header-btn:last-child {
+    border-color: rgba(217, 188, 138, 0.5);
+    background: rgba(217, 188, 138, 0.07);
+    color: #E8D7B8;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    min-height: 60px;
+    gap: 10px;
+    padding: 6px clamp(14px, 4vw, 36px);
+  }
+
+  .header .brand .navbar-emblem {
+    width: clamp(42px, 4vw, 50px);
+    height: clamp(42px, 4vw, 50px);
+  }
+
+  .mobile-menu {
+    display: grid;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    place-items: center;
+  }
+
+  .header-actions {
+    display: none !important;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 30;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px clamp(18px, 5vw, 36px);
+    border-bottom: 1px solid var(--gold-border);
+    background: var(--bg-nav);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav>button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .nav-mobile-actions {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--gold-border);
+  }
+
+  .nav-mobile-actions .header-btn {
+    display: inline-flex !important;
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .wrap {
+    width: min(100% - 32px, 600px);
+  }
+
+  .inner-page {
+    padding: 48px 0 64px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2,
+  .home-story-heading h2,
+  .about-copy h2,
+  .home-cta h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .home-cta {
+    margin-bottom: 56px;
+    padding: 38px 20px;
+  }
+
+  .network-banner {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  body {
+    min-width: 0;
+  }
+
+  .wrap {
+    width: calc(100% - 24px);
+  }
+
+  .feature-grid,
+  .feature-grid.three,
+  .feature-grid.four,
+  .feature-grid.five,
+  .feature-grid.fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .feature-card {
+    min-width: 0;
+  }
+
+  .header {
+    gap: 8px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .hero-register-btn,
+  .hero-enquiry-btn {
+    max-width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 13px;
+  }
+
+  .event-meta {
+    gap: 10px;
+  }
+
+  .event-meta>span {
+    padding-right: 8px;
+  }
+}
+
+.event-art {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 10;
+}
+
+.event-art .stage-beams,
+.event-art .stage-arch,
+.event-art .stage-spot,
+.event-art .stage-floor {
+  display: none;
+}
+
+.event-art .stage-center {
+  inset: 0;
+  z-index: 0;
+  padding: 0;
+}
+
+.event-art .stage-center-logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================
+   LBA26 - MATCH MEDIA PARTNERS LAUREL LAYOUT
+========================================= */
+
+.section-heading.section-heading-with-laurels {
+  display: grid !important;
+  grid-template-columns: 55px minmax(0, max-content) 55px !important;
+  grid-template-rows: auto !important;
+  flex-direction: unset !important;
+  align-items: center !important;
+  justify-content: center !important;
+  column-gap: 30px !important;
+  width: 100%;
+}
+
+.section-heading.section-heading-with-laurels>.laurel-svg:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  width: 55px !important;
+  height: 130px !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.section-heading.section-heading-with-laurels>.section-heading-content {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.section-heading.section-heading-with-laurels>.laurel-svg:last-child {
+  grid-column: 3;
+  grid-row: 1;
+  width: 55px !important;
+  height: 130px !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.section-heading.section-heading-with-laurels>.laurel-svg.flip {
+  transform: scaleX(-1);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .section-heading.section-heading-with-laurels {
+    grid-template-columns: 40px minmax(0, 1fr) 40px !important;
+    column-gap: 10px !important;
+  }
+
+  .section-heading.section-heading-with-laurels>.laurel-svg {
+    width: 40px !important;
+    height: 95px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .section-heading.section-heading-with-laurels {
+    grid-template-columns: 28px minmax(0, 1fr) 28px !important;
+    column-gap: 5px !important;
+  }
+
+  .section-heading.section-heading-with-laurels>.laurel-svg {
+    width: 28px !important;
+    height: 70px !important;
+  }
+}

@@ -1,0 +1,397 @@
+.recognition-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto 48px;
+  outline: none;
+}
+
+.recognition-carousel:focus-visible {
+  outline: 1px solid rgba(217, 188, 138, 0.6);
+  outline-offset: 6px;
+}
+
+.recognition-carousel-gradients {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.recognition-carousel-stage {
+  position: relative;
+  height: clamp(470px, 42vw, 560px);
+  overflow: hidden;
+  perspective: 1300px;
+  isolation: isolate;
+}
+
+.recognition-carousel-stage::before {
+  position: absolute;
+  right: -15%;
+  bottom: 17%;
+  left: -15%;
+  z-index: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(226, 186, 111, 0.25), #f1d08a, rgba(226, 186, 111, 0.25), transparent);
+  box-shadow: 0 0 10px rgba(235, 193, 110, 0.35);
+  content: "";
+}
+
+.recognition-carousel-stage::after {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  z-index: 1;
+  width: min(42%, 520px);
+  height: 40px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(208, 164, 87, 0.72);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(205, 158, 69, 0.12), transparent 70%);
+  box-shadow: 0 0 12px rgba(224, 179, 91, 0.22), inset 0 0 15px rgba(218, 180, 105, 0.12);
+  content: "";
+  pointer-events: none;
+}
+
+.recognition-carousel-horizon {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  z-index: 0;
+  width: min(95%, 1100px);
+  height: 180px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(218, 169, 79, 0.09), transparent 68%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.recognition-card {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: 360px;
+  height: 392px;
+  padding: 4px;
+  border: 0;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #fff0c1 0%, #d9bc8a 15%, #9d7135 46%, #5c4526 68%, #e1bc70 100%);
+  box-shadow: 0 8px 0 #594329, 0 14px 28px rgba(0, 0, 0, 0.65), 0 0 24px rgba(217, 188, 138, 0.3);
+  transform-style: preserve-3d;
+  transition:
+    transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    opacity 700ms ease,
+    box-shadow 500ms ease;
+  will-change: transform, opacity;
+}
+
+.recognition-card[data-position="0"] {
+  box-shadow: 0 8px 0 #594329, 0 16px 34px rgba(0, 0, 0, 0.76), 0 0 31px rgba(241, 202, 125, 0.54);
+}
+
+.recognition-card-inner {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 32px 22px 24px;
+  border: 1px solid rgba(255, 230, 169, 0.75);
+  border-radius: 24px;
+  background: radial-gradient(ellipse at 50% 20%, #3b3020 0%, #272119 48%, #171511 100%);
+  box-shadow: inset 0 1px 5px rgba(255, 231, 173, 0.25), inset 0 -18px 30px rgba(0, 0, 0, 0.48);
+  text-align: center;
+}
+
+.recognition-card-gloss {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), transparent 36%);
+  pointer-events: none;
+}
+
+.recognition-card-badge {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  min-width: 64px;
+  height: 30px;
+  place-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 241, 200, 0.84);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff1bd, #dcb365);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  color: #241a0d;
+  font-family: Cinzel, Georgia, serif;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.recognition-medallion-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 150px;
+  height: 76px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.recognition-laurel {
+  width: 38px;
+  height: 70px;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7));
+}
+
+.recognition-medallion {
+  width: 66px;
+  height: 66px;
+  flex: 0 0 auto;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff0c1, #d9bc8a 42%, #795523);
+  box-shadow: 0 0 17px rgba(217, 188, 138, 0.35), 0 5px 12px rgba(0, 0, 0, 0.55);
+  transition: transform 450ms ease, box-shadow 450ms ease;
+}
+
+.recognition-card[data-position="0"] .recognition-medallion {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(244, 209, 137, 0.55), 0 5px 14px rgba(0, 0, 0, 0.6);
+}
+
+.recognition-medallion-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 239, 195, 0.72);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, #44351f, #181612 75%);
+  color: #f3d48f;
+}
+
+.recognition-card-title {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  margin: 27px 0 0;
+  color: #fff8e9;
+  font-family: Cinzel, Georgia, serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.28;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.78);
+}
+
+.recognition-card-ornament {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(88%, 250px);
+  align-items: center;
+  gap: 12px;
+  margin-top: 23px;
+}
+
+.recognition-card-ornament span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, #bd9149);
+}
+
+.recognition-card-ornament span:last-child {
+  transform: rotate(180deg);
+}
+
+.recognition-card-ornament i {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: #e7c576;
+}
+
+.recognition-card-description {
+  position: relative;
+  z-index: 2;
+  max-width: 300px;
+  margin: 19px 0 0;
+  color: #efe7d8;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.recognition-bottom-ribbon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 78px;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.recognition-carousel-controls {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 4px auto 0;
+}
+
+.recognition-carousel-controls button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(217, 188, 138, 0.45);
+  border-radius: 50%;
+  background: rgba(26, 23, 18, 0.92);
+  color: #edcc82;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.recognition-carousel-controls button:hover {
+  transform: translateY(-2px);
+  border-color: #e6c374;
+  background: rgba(217, 188, 138, 0.12);
+}
+
+.recognition-carousel-controls button:focus-visible {
+  outline: 2px solid #f1d391;
+  outline-offset: 3px;
+}
+
+.recognition-carousel-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #efcf8b;
+  font-family: Cinzel, Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.recognition-carousel-count i {
+  width: 26px;
+  height: 1px;
+  background: rgba(217, 188, 138, 0.6);
+}
+
+.recognition-carousel-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 760px) {
+  .recognition-carousel {
+    margin-bottom: 38px;
+  }
+
+  .recognition-carousel-stage {
+    height: 440px;
+  }
+
+  .recognition-carousel-stage::before {
+    bottom: 15%;
+  }
+
+  .recognition-carousel-stage::after {
+    bottom: 2%;
+    width: 68%;
+  }
+
+  .recognition-card {
+    top: 47%;
+    width: 285px;
+    height: 350px;
+    border-radius: 24px;
+  }
+
+  .recognition-card-inner {
+    padding: 24px 18px 20px;
+    border-radius: 20px;
+  }
+
+  .recognition-medallion-wrap {
+    margin-top: 32px;
+  }
+
+  .recognition-card-title {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .recognition-card-description {
+    margin-top: 15px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 440px) {
+  .recognition-carousel-stage {
+    height: 410px;
+  }
+
+  .recognition-card {
+    width: 270px;
+    height: 335px;
+  }
+
+  .recognition-card-inner {
+    padding: 21px 15px 18px;
+  }
+
+  .recognition-medallion-wrap {
+    margin-top: 27px;
+  }
+
+  .recognition-card-title {
+    margin-top: 18px;
+    font-size: 18px;
+  }
+
+  .recognition-card-ornament {
+    margin-top: 17px;
+  }
+
+  .recognition-card-description {
+    margin-top: 13px;
+    font-size: 12px;
+  }
+
+  .recognition-carousel-controls {
+    gap: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recognition-card,
+  .recognition-medallion,
+  .recognition-carousel-controls button {
+    transition: none;
+  }
+}

@@ -1,0 +1,237 @@
+@keyframes lba-reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 22px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes lba-hero-drift {
+  from {
+    transform: translateX(-50%) scale(1.02);
+    background-position: center top;
+  }
+
+  to {
+    transform: translateX(-50%) scale(1.09);
+    background-position: 54% 60%;
+  }
+}
+
+@keyframes lba-emblem-glow {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+    filter: drop-shadow(0 0 0 rgba(217, 188, 138, 0));
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    filter: drop-shadow(0 0 24px rgba(217, 188, 138, 0.42));
+  }
+}
+
+.header,
+.inner-page,
+.hero,
+.stats,
+.home-story-section,
+.about-preview,
+.home-cta,
+.site-footer,
+.about-feature,
+.about-profile-row,
+.about-video-story,
+.lba-media-detail-card {
+  animation: lba-reveal-up 760ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.stats {
+  animation-delay: 100ms;
+}
+
+.home-story-section {
+  animation-delay: 180ms;
+}
+
+.about-preview {
+  animation-delay: 260ms;
+}
+
+.home-cta {
+  animation-delay: 340ms;
+}
+
+.hero::before {
+  animation: lba-hero-drift 28s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+.hero-emblem {
+  animation: lba-emblem-glow 900ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.hero .strap {
+  animation: lba-reveal-up 650ms 120ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.hero .motto {
+  animation: lba-reveal-up 650ms 220ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.hero .event-meta {
+  animation: lba-reveal-up 650ms 320ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.hero .hero-cta {
+  animation: lba-reveal-up 650ms 420ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.inner-page h2,
+.home-story-heading h2,
+.about-copy h2,
+.home-cta h2 {
+  animation: lba-reveal-up 700ms 100ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.section-heading p,
+.home-story-heading p,
+.about-copy p,
+.home-cta p {
+  animation: lba-reveal-up 700ms 220ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.feature-card,
+.recognition-card,
+.who-card,
+.sponsorship-card,
+.journey-card,
+.media-card,
+.event-detail-card,
+.stat {
+  animation: lba-reveal-up 700ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.feature-card:nth-child(2),
+.recognition-card:nth-child(2),
+.who-card:nth-child(2),
+.sponsorship-card:nth-child(2),
+.journey-card:nth-child(2),
+.media-card:nth-child(2),
+.event-detail-card:nth-child(2),
+.stat:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.feature-card:nth-child(3),
+.recognition-card:nth-child(3),
+.who-card:nth-child(3),
+.sponsorship-card:nth-child(3),
+.journey-card:nth-child(3),
+.media-card:nth-child(3),
+.event-detail-card:nth-child(3),
+.stat:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.feature-card:nth-child(4),
+.recognition-card:nth-child(4),
+.who-card:nth-child(4),
+.sponsorship-card:nth-child(4),
+.journey-card:nth-child(4),
+.media-card:nth-child(4),
+.event-detail-card:nth-child(4),
+.stat:nth-child(4) {
+  animation-delay: 210ms;
+}
+
+.feature-card:nth-child(5),
+.recognition-card:nth-child(5),
+.who-card:nth-child(5),
+.sponsorship-card:nth-child(5),
+.journey-card:nth-child(5),
+.media-card:nth-child(5),
+.event-detail-card:nth-child(5) {
+  animation-delay: 280ms;
+}
+
+.feature-card:nth-child(6),
+.recognition-card:nth-child(6),
+.who-card:nth-child(6),
+.sponsorship-card:nth-child(6),
+.journey-card:nth-child(6),
+.media-card:nth-child(6),
+.event-detail-card:nth-child(6) {
+  animation-delay: 350ms;
+}
+
+.feature-card:hover,
+.recognition-card:hover,
+.who-card:hover,
+.sponsorship-card:hover,
+.journey-card:hover,
+.media-card:hover,
+.event-detail-card:hover {
+  filter: brightness(1.07);
+}
+
+.feature-card .card-icon,
+.media-card svg {
+  transition: filter 240ms ease, transform 240ms ease;
+}
+
+.feature-card:hover .card-icon,
+.media-card:hover svg {
+  filter: drop-shadow(0 0 10px rgba(217, 188, 138, 0.5));
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner-page,
+  .header,
+  .hero,
+  .stats,
+  .home-story-section,
+  .about-preview,
+  .home-cta,
+  .site-footer,
+  .hero::before,
+  .hero-emblem,
+  .hero .strap,
+  .hero .motto,
+  .hero .event-meta,
+  .hero .hero-cta,
+  .inner-page h2,
+  .home-story-heading h2,
+  .about-copy h2,
+  .home-cta h2,
+  .section-heading p,
+  .home-story-heading p,
+  .about-copy p,
+  .home-cta p,
+  .feature-card,
+  .recognition-card,
+  .who-card,
+  .sponsorship-card,
+  .journey-card,
+  .media-card,
+  .event-detail-card,
+  .stat,
+  .about-feature,
+  .about-profile-row,
+  .about-video-story,
+  .lba-media-detail-card {
+    animation: none !important;
+  }
+
+  .feature-card .card-icon,
+  .sponsorship-card .sponsorship-icon-disc,
+  .media-card svg {
+    transition: none !important;
+  }
+}
